@@ -9,7 +9,7 @@ StaffManagementWindow::StaffManagementWindow(QWidget *parent) :
 
     //设置listwidget
     ui->listWidget->addItem("序号\t账户名\t密码");
-    file = new QFile("./supermarket.json");
+    file = new QFile("./passwd.json");
     file->open(QIODevice::ReadOnly);
     QJsonDocument doc = QJsonDocument::fromJson(file->readAll());
     QJsonArray array = doc.object().value("staff").toArray();

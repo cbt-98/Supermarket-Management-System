@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    passwordFile = new QFile("./supermarket.json");
+    passwordFile = new QFile("./passwd.json");
 }
 
 MainWindow::~MainWindow()
