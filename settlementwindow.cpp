@@ -99,159 +99,190 @@ void SettlementWindow::on_nameComboBox_currentTextChanged(const QString &arg1)
 
 void SettlementWindow::on_addBtn_clicked()
 {
-    //更新总价
-    double nowTotal = ui->totalLabel->text().toDouble();
-    double d = ui->priceLabel->text().toDouble()*ui->numberSpinBox->text().toInt();
-    ui->totalLabel->setText(QString("%1").arg(d+nowTotal));
+    if(ui->numberSpinBox->text()=="0")
+    {
+        QMessageBox *qb = new QMessageBox(this);
+        qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+        qb->setText("请输入商品名，数量至少为1");
+        qb->show();
+    }
+    else
+    {
+        //更新总价
+        double nowTotal = ui->totalLabel->text().toDouble();
+        double d = ui->priceLabel->text().toDouble()*ui->numberSpinBox->text().toInt();
+        ui->totalLabel->setText(QString("%1").arg(d+nowTotal));
 
-    //更新列表显示
-    QString type, name, price, number;
-    type = ui->typeComboBox->currentText();
-    name = ui->nameComboBox->currentText();
-    price = ui->priceLabel->text();
-    number = ui->numberSpinBox->text();
+        //更新列表显示
+        QString type, name, price, number;
+        type = ui->typeComboBox->currentText();
+        name = ui->nameComboBox->currentText();
+        price = ui->priceLabel->text();
+        number = ui->numberSpinBox->text();
 
-    int num = ui->listWidget->count();
-    ui->listWidget->addItem(QString::number(num)
-                            +"\t"+type+"\t"+name
-                            +"\t"+price+"\t"+number);
+        int num = ui->listWidget->count();
+        ui->listWidget->addItem(QString::number(num)
+                                +"\t"+type+"\t"+name
+                                +"\t"+price+"\t"+number);
 
-    //更新容器
-    shoppingList[0].append(type);
-    shoppingList[1].append(name);
-    shoppingList[2].append(price);
-    shoppingList[3].append(number);
+        //更新容器
+        shoppingList[0].append(type);
+        shoppingList[1].append(name);
+        shoppingList[2].append(price);
+        shoppingList[3].append(number);
 
-    int n = typeMap.value(type).value(name).value("num").toInt()-number.toInt();
-    typeMap[type][name]["num"] = QString::number(n);
+        int n = typeMap.value(type).value(name).value("num").toInt()-number.toInt();
+        typeMap[type][name]["num"] = QString::number(n);
 
-    //更新剩余数量
-    ui->numberSpinBox->setMaximum(n);
-    ui->remainLabel->setText(QString("剩 余：%1").arg(n));
+        //更新剩余数量
+        ui->numberSpinBox->setMaximum(n);
+        ui->remainLabel->setText(QString("剩 余：%1").arg(n));
+    }
 }
 
 void SettlementWindow::on_deleteBtn_2_clicked()
 {
-    int n = ui->deleteEdit_2->text().toInt();
-    if(n < ui->listWidget->count())
+    if(ui->deleteEdit_2->text()!="")
     {
-        //更新总价
-        double d = shoppingList[2][n-1].toDouble()*shoppingList[3][n-1].toInt();
-        double newTotal = ui->totalLabel->text().toDouble()-d;
-        ui->totalLabel->setText(QString("%1").arg(newTotal));
-
-        //更新map容器
-
-        int newNum = typeMap.value(shoppingList[0][n-1])
-                            .value(shoppingList[1][n-1])
-                            .value("num").toInt()
-                     +shoppingList[3][n-1].toInt();
-
-        typeMap[shoppingList[0][n-1]]
-                [shoppingList[1][n-1]]
-                ["num"] = QString::number(newNum);
-
-        //更新列表容器
-        shoppingList[0].removeAt(n-1);
-        shoppingList[1].removeAt(n-1);
-        shoppingList[2].removeAt(n-1);
-        shoppingList[3].removeAt(n-1);
-
-        //更新列表显示
-        ui->listWidget->clear();
-        ui->listWidget->addItem("序号\t种类\t商品名\t单价\t数量");
-        for(int i=0;i<shoppingList[0].count();i++)
+        int n = ui->deleteEdit_2->text().toInt();
+        if(n < ui->listWidget->count())
         {
-            QString type, name, price, number;
-            type = shoppingList[0][i];
-            name = shoppingList[1][i];
-            price = shoppingList[2][i];
-            number = shoppingList[3][i];
+            //更新总价
+            double d = shoppingList[2][n-1].toDouble()*shoppingList[3][n-1].toInt();
+            double newTotal = ui->totalLabel->text().toDouble()-d;
+            ui->totalLabel->setText(QString("%1").arg(newTotal));
 
-            int num = ui->listWidget->count();
-            ui->listWidget->addItem(QString::number(num)
-                                    +"\t"+type+"\t"+name
-                                    +"\t"+price+"\t"+number);
+            //更新map容器
+
+            int newNum = typeMap.value(shoppingList[0][n-1])
+                                .value(shoppingList[1][n-1])
+                                .value("num").toInt()
+                         +shoppingList[3][n-1].toInt();
+
+            typeMap[shoppingList[0][n-1]]
+                    [shoppingList[1][n-1]]
+                    ["num"] = QString::number(newNum);
+
+            //更新列表容器
+            shoppingList[0].removeAt(n-1);
+            shoppingList[1].removeAt(n-1);
+            shoppingList[2].removeAt(n-1);
+            shoppingList[3].removeAt(n-1);
+
+            //更新列表显示
+            ui->listWidget->clear();
+            ui->listWidget->addItem("序号\t种类\t商品名\t单价\t数量");
+            for(int i=0;i<shoppingList[0].count();i++)
+            {
+                QString type, name, price, number;
+                type = shoppingList[0][i];
+                name = shoppingList[1][i];
+                price = shoppingList[2][i];
+                number = shoppingList[3][i];
+
+                int num = ui->listWidget->count();
+                ui->listWidget->addItem(QString::number(num)
+                                        +"\t"+type+"\t"+name
+                                        +"\t"+price+"\t"+number);
+            }
+            //更新剩余数量
+            int max = typeMap.value(ui->typeComboBox->currentText())
+                            .value(ui->nameComboBox->currentText())
+                            .value("num").toInt();
+            ui->numberSpinBox->setMaximum(max);
+            ui->remainLabel->setText(QString("剩 余：%1").arg(max));
+
         }
-        //更新剩余数量
-        int max = typeMap.value(ui->typeComboBox->currentText())
-                        .value(ui->nameComboBox->currentText())
-                        .value("num").toInt();
-        ui->numberSpinBox->setMaximum(max);
-        ui->remainLabel->setText(QString("剩 余：%1").arg(max));
-
+        else
+        {
+            QMessageBox *mb = new QMessageBox(this);
+            mb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+            mb->setText("没有该选项");
+            mb->show();
+        }
     }
     else
     {
-        QMessageBox *mb = new QMessageBox(this);
-        mb->setText("没有该选项");
-        mb->show();
+        QMessageBox *qb = new QMessageBox(this);
+        qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+        qb->setText("请输入行号");
+        qb->show();
     }
 }
 
 void SettlementWindow::on_submitBtn_clicked()
 {
-    //获取提交时间
-    QString date = QDateTime::currentDateTime().toString("yyyy.MM.dd hh:mm:ss ddd");
-
-    QFile repositoryFile("./repository.json");
-    QFile sellFile("./sell.json");
-    //写到销售表
-    QJsonDocument doc;
-    QJsonObject object;     //保存账单对象
-    QJsonArray orderArray;  //保存账单数组
-    QJsonObject orderObj;   //每个账单对象
-
-    sellFile.open(QIODevice::ReadWrite);
-    doc = QJsonDocument::fromJson(sellFile.readAll());
-    object = doc.object();
-    orderArray = object.value("order").toArray();
-
-    for(int i=0; i<shoppingList[0].size(); i++)
+    if(ui->listWidget->count()==1)
     {
-        QJsonObject itemObj;    //每个条目的对象
-        itemObj.insert("种类", shoppingList[0].at(i));
-        itemObj.insert("商品名", shoppingList[1].at(i));
-        itemObj.insert("单价", shoppingList[2].at(i));
-        itemObj.insert("数量", shoppingList[3].at(i));
-        orderObj.insert(QString::number(i), itemObj);
+        QMessageBox *qb = new QMessageBox(this);
+        qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+        qb->setText("购物单为空");
+        qb->show();
     }
-    orderObj.insert("total", ui->totalLabel->text());
-    orderObj.insert("date", date);
-    orderArray.append(orderObj);
-    object["order"] = orderArray;
-    doc.setObject(object);
-    sellFile.resize(0);
-    sellFile.write(doc.toJson());
-    sellFile.flush();
-    sellFile.close();
-
-    //写到仓库文件中
-    repositoryFile.open(QIODevice::ReadWrite);
-    QJsonDocument reDoc;
-    QJsonObject typeObj;
-    for(auto it1=typeMap.begin(); it1!=typeMap.end(); it1++)
+    else
     {
-        QJsonObject nameObj;
-        for(auto it2=it1->begin(); it2!=it1->end(); it2++)
+        //获取提交时间
+        QString date = QDateTime::currentDateTime().toString("yyyy.MM.dd hh:mm:ss ddd");
+
+        QFile repositoryFile("./repository.json");
+        QFile sellFile("./sell.json");
+        //写到销售表
+        QJsonDocument doc;
+        QJsonObject object;     //保存账单对象
+        QJsonArray orderArray;  //保存账单数组
+        QJsonObject orderObj;   //每个账单对象
+
+        sellFile.open(QIODevice::ReadWrite);
+        doc = QJsonDocument::fromJson(sellFile.readAll());
+        object = doc.object();
+        orderArray = object.value("order").toArray();
+
+        for(int i=0; i<shoppingList[0].size(); i++)
         {
-            QJsonObject propertyObj;
-            propertyObj.insert("price", it2.value().value("price"));
-            propertyObj.insert("num", it2.value().value("num"));
-            nameObj.insert(it2.key(), propertyObj);
+            QJsonObject itemObj;    //每个条目的对象
+            itemObj.insert("种类", shoppingList[0].at(i));
+            itemObj.insert("商品名", shoppingList[1].at(i));
+            itemObj.insert("单价", shoppingList[2].at(i));
+            itemObj.insert("数量", shoppingList[3].at(i));
+            orderObj.insert(QString::number(i), itemObj);
         }
-        typeObj.insert(it1.key(),nameObj);
+        orderObj.insert("total", ui->totalLabel->text());
+        orderObj.insert("date", date);
+        orderArray.append(orderObj);
+        object["order"] = orderArray;
+        doc.setObject(object);
+        sellFile.resize(0);
+        sellFile.write(doc.toJson());
+        sellFile.flush();
+        sellFile.close();
+
+        //写到仓库文件中
+        repositoryFile.open(QIODevice::ReadWrite);
+        QJsonDocument reDoc;
+        QJsonObject typeObj;
+        for(auto it1=typeMap.begin(); it1!=typeMap.end(); it1++)
+        {
+            QJsonObject nameObj;
+            for(auto it2=it1->begin(); it2!=it1->end(); it2++)
+            {
+                QJsonObject propertyObj;
+                propertyObj.insert("price", it2.value().value("price"));
+                propertyObj.insert("num", it2.value().value("num"));
+                nameObj.insert(it2.key(), propertyObj);
+            }
+            typeObj.insert(it1.key(),nameObj);
+        }
+        reDoc.setObject(typeObj);
+        repositoryFile.resize(0);
+        repositoryFile.write(reDoc.toJson());
+        repositoryFile.close();
+
+        //清空列表
+        ui->listWidget->clear();
+        ui->totalLabel->setText(QString::number(0));
+
+        QMessageBox *qb = new QMessageBox(this);
+        qb->setText("提交成功！");
+        qb->show();
     }
-    reDoc.setObject(typeObj);
-    repositoryFile.resize(0);
-    repositoryFile.write(reDoc.toJson());
-    repositoryFile.close();
-
-    //清空列表
-    ui->listWidget->clear();
-    ui->totalLabel->setText(QString::number(0));
-
-    QMessageBox *qb = new QMessageBox(this);
-    qb->setText("提交成功！");
-    qb->show();
 }

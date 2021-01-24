@@ -2,6 +2,7 @@
 #define STAFFMANAGEMENTWINDOW_H
 
 #include <QMainWindow>
+#include <QMessageBox>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
