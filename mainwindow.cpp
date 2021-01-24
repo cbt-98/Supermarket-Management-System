@@ -118,7 +118,40 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    StaffWindow *sw = new StaffWindow(this);
-    sw->show();
-    this->hide();
+    passwordFile->open(QIODevice::ReadWrite);
+    QJsonDocument doc(QJsonDocument::fromJson(passwordFile->readAll()));
+    QJsonObject obj = doc.object();
+    QJsonArray array = obj.value("staff").toArray();
+    for(int i=0; i<array.size();i++)
+    {
+        if(array.at(i).toObject().value("account") == ui->accountEdit->text())
+        {
+            if(array.at(i).toObject().value("passwd") == ui->pwEdit->text())
+            {
+                //用户名和密码匹配跳转页面
+                StaffWindow *sw = new StaffWindow(this);
+                sw->show();
+                this->hide();
+                passwordFile->close();
+                break;
+            }
+            else
+            {
+                QMessageBox *mb = new QMessageBox;
+                mb->setText("密码错误！");
+                mb->setWindowTitle(" ");
+                mb->show();
+                passwordFile->close();
+                break;
+            }
+        }
+        if(i == array.size()-1)
+        {
+            QMessageBox *mb = new QMessageBox;
+            mb->setText("用户不存在！");
+            mb->setWindowTitle(" ");
+            mb->show();
+            passwordFile->close();
+        }
+    }
 }

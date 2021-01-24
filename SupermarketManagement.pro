@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     adminwindow.cpp \
+    buylist.cpp \
     goodsinquirywindow.cpp \
     goodsmanagementwindow.cpp \
     main.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
 
 HEADERS += \
     adminwindow.h \
+    buylist.h \
     goodsinquirywindow.h \
     goodsmanagementwindow.h \
     mainwindow.h \
@@ -36,6 +38,7 @@ HEADERS += \
 
 FORMS += \
     adminwindow.ui \
+    buylist.ui \
     goodsinquirywindow.ui \
     goodsmanagementwindow.ui \
     mainwindow.ui \

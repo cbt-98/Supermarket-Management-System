@@ -44,7 +44,8 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 12pt &quot;黑体&quot;;</string>
+     <string notr="true">font: 12pt &quot;黑体&quot;;
+color: rgb(0, 0, 0);</string>
     </property>
     <property name="currentIndex">
      <number>1</number>
@@ -81,6 +82,11 @@ background-color: rgb(255, 255, 255);</string>
         <width>751</width>
         <height>361</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;黑体&quot;;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
       </property>
      </widget>
     </widget>

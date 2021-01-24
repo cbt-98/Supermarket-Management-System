@@ -250,4 +250,8 @@ void SettlementWindow::on_submitBtn_clicked()
     //清空列表
     ui->listWidget->clear();
     ui->totalLabel->setText(QString::number(0));
+
+    QMessageBox *qb = new QMessageBox(this);
+    qb->setText("提交成功！");
+    qb->show();
 }
