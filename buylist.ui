@@ -58,7 +58,8 @@ font: 12pt &quot;黑体&quot;;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">
+background-color: rgb(170, 227, 255);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>

@@ -158,7 +158,7 @@ void GoodsInquiryWindow::on_listWidget_2_itemDoubleClicked(QListWidgetItem *item
     {
         BuyList *by = new BuyList(this);
         by->addItem("种类\t商品名\t单价\t数量");
-        for(auto it=orderList1->at(row).begin();it!=orderList1->at(row).end();it++)
+        for(auto it=orderList2->at(row).begin();it!=orderList2->at(row).end();it++)
         {
             QString type = it.value().value("种类");
             QString name = it.value().value("商品名");

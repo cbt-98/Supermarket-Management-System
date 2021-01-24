@@ -14,7 +14,8 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">color: rgb(255, 255, 255);</string>
+   <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="returnBtn">
@@ -37,13 +38,13 @@
       <normaloff>:/image/icon/return.png</normaloff>:/image/icon/return.png</iconset>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>90</y>
+      <x>220</x>
+      <y>140</y>
       <width>361</width>
-      <height>271</height>
+      <height>141</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">

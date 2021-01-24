@@ -37,10 +37,10 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>160</y>
-      <width>361</width>
-      <height>141</height>
+      <x>180</x>
+      <y>200</y>
+      <width>441</width>
+      <height>51</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -54,7 +54,8 @@
        </property>
        <property name="styleSheet">
         <string notr="true">font: 12pt &quot;黑体&quot;;
-color: rgb(0, 0, 0);</string>
+color: rgb(255, 255, 255);
+background-color: rgb(0, 170, 255);</string>
        </property>
        <property name="text">
         <string>客 户 结 算</string>
@@ -84,7 +85,8 @@ color: rgb(0, 0, 0);</string>
        </property>
        <property name="styleSheet">
         <string notr="true">font: 12pt &quot;黑体&quot;;
-color: rgb(0, 0, 0);</string>
+color: rgb(255, 255, 255);
+background-color: rgb(0, 170, 255);</string>
        </property>
        <property name="text">
         <string>货 物 查 询</string>
