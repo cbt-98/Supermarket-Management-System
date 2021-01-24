@@ -7,6 +7,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QMessageBox>
+#include <QDateTime>
 
 namespace Ui {
 class GoodsManagementWindow;

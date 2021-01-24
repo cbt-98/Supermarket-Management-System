@@ -7,6 +7,26 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     passwordFile = new QFile("./passwd.json");
+    QFile repositoryFile("repository.json");
+    //创建仓库商品存量表
+    if(!repositoryFile.exists())
+    {
+        repositoryFile.open(QIODevice::ReadWrite);
+        QJsonDocument doc;
+        QJsonObject commodityObj;   //保存一类商品的对象
+        QJsonObject typeObj;        //保存商品种类的对象
+        QStringList list;
+        list << "零食" << "衣服" << "玩具" << "电子"
+             << "生活" << "烟酒" << "蔬菜" << "肉类"
+             << "鞋类" << "饮料" << "文具" << "电器";
+        for(int i=0; i<list.size(); i++)
+        {
+            typeObj.insert(list.at(i), commodityObj);
+        }
+        doc.setObject(typeObj);
+        repositoryFile.write(doc.toJson());
+        repositoryFile.close();
+    }
 }
 
 MainWindow::~MainWindow()

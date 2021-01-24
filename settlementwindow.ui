@@ -13,24 +13,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="submitBtn">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>390</y>
-      <width>171</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 0);
-font: 16pt &quot;黑体&quot;;</string>
-    </property>
-    <property name="text">
-     <string>提  交</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="returnBtn">
     <property name="geometry">
      <rect>
@@ -51,22 +37,83 @@ font: 16pt &quot;黑体&quot;;</string>
       <normaloff>:/image/icon/return.png</normaloff>:/image/icon/return.png</iconset>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QPushButton" name="submitBtn">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>50</y>
-      <width>741</width>
-      <height>331</height>
+      <x>310</x>
+      <y>390</y>
+      <width>171</width>
+      <height>41</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);
+font: 16pt &quot;黑体&quot;;</string>
+    </property>
+    <property name="text">
+     <string>提  交</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>761</width>
+      <height>342</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_14">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
-          <widget class="QLabel" name="label">
+          <widget class="QLabel" name="label_4">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 0);
+font: 16pt &quot;黑体&quot;;</string>
+           </property>
+           <property name="text">
+            <string>种  类</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="typeComboBox">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 0);
+font: 12pt &quot;黑体&quot;;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_15">
+         <item>
+          <widget class="QLabel" name="label_10">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -92,12 +139,16 @@ font: 16pt &quot;黑体&quot;;</string>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="nameEdit">
+          <widget class="QComboBox" name="nameComboBox">
            <property name="minimumSize">
             <size>
              <width>0</width>
              <height>30</height>
             </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 0);
+font: 12pt &quot;黑体&quot;;</string>
            </property>
           </widget>
          </item>
@@ -133,25 +184,15 @@ font: 16pt &quot;黑体&quot;;</string>
          </item>
          <item>
           <widget class="QLabel" name="priceLabel">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
+           <property name="maximumSize">
             <size>
-             <width>0</width>
+             <width>16777215</width>
              <height>30</height>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);
-font: 16pt &quot;黑体&quot;;</string>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
+            <string notr="true">color: rgb(0, 0, 0);
+font: 12pt &quot;黑体&quot;;</string>
            </property>
            <property name="text">
             <string/>
@@ -163,7 +204,7 @@ font: 16pt &quot;黑体&quot;;</string>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QLabel" name="label_4">
+          <widget class="QLabel" name="label_5">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -196,6 +237,60 @@ font: 16pt &quot;黑体&quot;;</string>
              <height>30</height>
             </size>
            </property>
+           <property name="styleSheet">
+            <string notr="true">font: 12pt &quot;黑体&quot;;
+color: rgb(0, 0, 0);</string>
+           </property>
+           <property name="maximum">
+            <number>99999999</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label_12">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 0);
+font: 16pt &quot;黑体&quot;;</string>
+           </property>
+           <property name="text">
+            <string>删  除</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="deleteEdit_2">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 0);
+font: 10pt &quot;黑体&quot;;</string>
+           </property>
+           <property name="placeholderText">
+            <string>输入要删除的序号</string>
+           </property>
           </widget>
          </item>
         </layout>
@@ -203,31 +298,81 @@ font: 16pt &quot;黑体&quot;;</string>
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="addBtn">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>200</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="res.qrc">
-         <normaloff>:/image/icon/add.png</normaloff>:/image/icon/add.png</iconset>
-       </property>
-      </widget>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QPushButton" name="addBtn">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/image/icon/add.png</normaloff>:/image/icon/add.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="deleteBtn_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>64</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/image/icon/remove.png</normaloff>:/image/icon/remove.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QListWidget" name="listWidget"/>
+        <widget class="QListWidget" name="listWidget">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>480</width>
+           <height>300</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 12pt &quot;黑体&quot;;
+color: rgb(0, 0, 0);</string>
+         </property>
+        </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
-          <widget class="QLabel" name="label_5">
+          <widget class="QLabel" name="label_13">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -286,6 +431,23 @@ color: rgb(0, 0, 0);</string>
       </layout>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="remainLabel">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>300</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 9pt &quot;黑体&quot;;
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>剩 余：</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
