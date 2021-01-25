@@ -7,6 +7,7 @@ ModifyWindow::ModifyWindow(QWidget *parent) :
 {
     flag = false;
     ui->setupUi(this);
+
     //把repository.json的数据读取到map容器
     QFile file("repository.json");
     file.open(QIODevice::ReadWrite);
@@ -34,6 +35,7 @@ ModifyWindow::ModifyWindow(QWidget *parent) :
          << "鞋类" << "饮料" << "文具" << "电器";
     ui->comboBox->addItems(list);
 
+    //更新表格显示
     QString type = ui->comboBox->currentText();
     QTableWidgetItem headerItem;
     QStringList headerText;
@@ -41,7 +43,6 @@ ModifyWindow::ModifyWindow(QWidget *parent) :
     ui->tableWidget->horizontalHeader()->setStyleSheet
         ("color: rgb(0, 0, 0);font: 12pt \"黑体\";");
     ui->tableWidget->setHorizontalHeaderLabels(headerText);
-
     int i = 0;
     flag = false;
     for(auto it=typeMap.value(type).begin();it!=typeMap.value(type).end();it++)
@@ -87,6 +88,7 @@ void ModifyWindow::on_comboBox_currentTextChanged(const QString &arg1)
         ui->tableWidget->setItem(i,1,new QTableWidgetItem(it.value().value("num")));
         ui->tableWidget->setItem(i,2,new QTableWidgetItem(it.value().value("cost")));
         ui->tableWidget->setItem(i,3,new QTableWidgetItem(it.value().value("price")));
+        //字体居中
         ui->tableWidget->item(i,0)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
         ui->tableWidget->item(i,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
         ui->tableWidget->item(i,2)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);

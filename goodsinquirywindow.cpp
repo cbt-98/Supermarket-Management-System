@@ -132,6 +132,9 @@ void GoodsInquiryWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
             QString num = it.value().value("数量");
             by->addItem(type+"\t"+name+"\t"+price+"\t"+num);
         }
+        by->addItem(" ");
+        by->addItem("总 额："+totalList1->at(row));
+        by->addItem("日 期："+dateList1->at(row));
         by->show();
         by->move ((this->width()-by->width())/2, (this->height()-by->height())/2);
     }
@@ -153,6 +156,10 @@ void GoodsInquiryWindow::on_listWidget_2_itemDoubleClicked(QListWidgetItem *item
             QString num = it.value().value("数量");
             by->addItem(type+"\t"+name+"\t"+price+"\t"+cost+"\t"+num);
         }
+        by->addItem(" ");
+        by->addItem("总 额："+totalList2->at(row));
+        by->addItem("利 润："+costList->at(row));
+        by->addItem("日 期："+dateList2->at(row));
         by->show();
         by->move ((this->width()-by->width())/2, (this->height()-by->height())/2);
     }

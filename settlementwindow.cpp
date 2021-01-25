@@ -297,6 +297,12 @@ void SettlementWindow::on_submitBtn_clicked()
         ui->listWidget->addItem("序号\t种类\t商品名\t单价\t数量");
         ui->totalLabel->setText(QString::number(0));
 
+        //清空容器
+        for(int i=0;i<shoppingList.count();i++)
+        {
+            shoppingList[i].clear();
+        }
+
         QMessageBox *qb = new QMessageBox(this);
         qb->setText("提交成功！");
         qb->show();

@@ -3,5 +3,9 @@
         <file>image/icon/return.png</file>
         <file>image/icon/add.png</file>
         <file>image/icon/remove.png</file>
+        <file>image/picture/buy.png</file>
+        <file>image/picture/find.png</file>
+        <file>image/picture/goods.png</file>
+        <file>image/picture/staff.png</file>
     </qresource>
 </RCC>

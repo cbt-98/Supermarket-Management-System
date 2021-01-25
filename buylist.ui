@@ -61,11 +61,13 @@ font: 12pt &quot;黑体&quot;;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-</string>
+    <string notr="true">background-color: rgb(39, 38, 54);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
    </property>
    <property name="text">
     <string/>

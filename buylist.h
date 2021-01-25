@@ -15,7 +15,6 @@ public:
     explicit BuyList(QWidget *parent = nullptr);
     ~BuyList();
     void addItem(QString item);
-
 private slots:
     void on_pushButton_clicked();
 

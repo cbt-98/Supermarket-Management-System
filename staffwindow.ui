@@ -37,25 +37,31 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>200</y>
-      <width>441</width>
-      <height>51</height>
+      <x>110</x>
+      <y>300</y>
+      <width>581</width>
+      <height>91</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="staffBtn">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="minimumSize">
+        <size>
+         <width>180</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="styleSheet">
-        <string notr="true">font: 12pt &quot;黑体&quot;;
+        <string notr="true">font: 14pt &quot;黑体&quot;;
 color: rgb(255, 255, 255);
-background-color: rgb(0, 170, 255);</string>
+background-color:rgb(39, 38, 54);</string>
        </property>
        <property name="text">
         <string>客 户 结 算</string>
@@ -78,15 +84,21 @@ background-color: rgb(0, 170, 255);</string>
      <item>
       <widget class="QPushButton" name="goodsBtn">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="minimumSize">
+        <size>
+         <width>180</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="styleSheet">
-        <string notr="true">font: 12pt &quot;黑体&quot;;
+        <string notr="true">font: 14pt &quot;黑体&quot;;
 color: rgb(255, 255, 255);
-background-color: rgb(0, 170, 255);</string>
+background-color:rgb(39, 38, 54);</string>
        </property>
        <property name="text">
         <string>货 物 查 询</string>
@@ -94,6 +106,50 @@ background-color: rgb(0, 170, 255);</string>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>80</y>
+      <width>181</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/image/picture/find.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>80</y>
+      <width>181</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/image/picture/buy.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
