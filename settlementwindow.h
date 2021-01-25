@@ -38,7 +38,7 @@ private slots:
 private:
     Ui::SettlementWindow *ui;
     QMap<QString,QMap<QString,QMap<QString,QString>>> typeMap; //存放仓库信息
-    QList<QList<QString>> shoppingList;
+    QList<QList<QString>> shoppingList;     //[类型表，商品名表，售价表，数量表，成本表]
 };
 
 #endif // SETTLEMENTWINDOW_H

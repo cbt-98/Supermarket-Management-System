@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>350</width>
+    <width>450</width>
     <height>400</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>331</width>
+     <width>431</width>
      <height>351</height>
     </rect>
    </property>
@@ -30,13 +30,16 @@
 background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
    </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>180</x>
      <y>370</y>
-     <width>75</width>
+     <width>91</width>
      <height>23</height>
     </rect>
    </property>
@@ -53,13 +56,13 @@ font: 12pt &quot;黑体&quot;;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>350</width>
+     <width>450</width>
      <height>400</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">
-background-color: rgb(170, 227, 255);</string>
+</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>

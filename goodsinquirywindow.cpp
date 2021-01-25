@@ -6,18 +6,18 @@ GoodsInquiryWindow::GoodsInquiryWindow(QWidget *parent) :
     ui(new Ui::GoodsInquiryWindow)
 {
     ui->setupUi(this);
-    ui->listWidget->addItem("序号\t总价\t\t日期");
-    ui->listWidget_2->addItem("序号\t总价\t\t日期");
+    ui->listWidget->addItem("序号\t总价\t日期");
+    ui->listWidget_2->addItem("序号\t总价\t利润\t日期");
     orderList1 = new QList<QMap<QString,QMap<QString,QString>>>;
     dateList1 = new QList<QString>;
     totalList1 = new QList<QString>;
     orderList2 = new QList<QMap<QString,QMap<QString,QString>>>;
     dateList2 = new QList<QString>;
     totalList2 = new QList<QString>;
+    costList = new QList<QString>;
 
     QFile buyFile("./stocking.json");
     QFile sellFile("./sell.json");
-
     //读取文件到容器中
     buyFile.open(QIODevice::ReadOnly);
     sellFile.open(QIODevice::ReadOnly);
@@ -69,6 +69,10 @@ GoodsInquiryWindow::GoodsInquiryWindow(QWidget *parent) :
             {
                 totalList2->append(it.value().toString());
             }
+            else if(it.key() == "profit")
+            {
+                costList->append(it.value().toString());
+            }
             else
             {
                 QMap<QString, QString> itemMap;
@@ -83,35 +87,17 @@ GoodsInquiryWindow::GoodsInquiryWindow(QWidget *parent) :
         }
         orderList2->append(map);
     }
-//    for(int i=0;i<sellArray.size();i++)
-//    {
-//        QMap<QString, QString> map;
-//        for(auto it=sellArray.at(i).toObject().begin();
-//                it!=sellArray.at(i).toObject().end();it++)
-//        {
-//            if(it.key() == "date")
-//            {
-//                dateList2->append(it.value().toString());
-//            }
-//            else if(it.key() == "total")
-//            {
-//                totalList2->append(it.value().toString());
-//            }
-//            else
-//            {
-//                map.insert(it.key(),it.value().toString());
-//            }
-//        }
-//        orderList2->append(map);
-//    }
     for(int i=0; i<dateList1->size(); i++)
     {
-        QString item = QString::number(i+1)+"\t"+totalList1->at(i)+"\t\t"+dateList1->at(i);
+        QString item = QString::number(i+1)+"\t"+totalList1->at(i)+"\t"+dateList1->at(i);
         ui->listWidget->addItem(item);
     }
     for(int i=0; i<dateList2->size(); i++)
     {
-        QString item = QString::number(i+1)+"\t"+totalList2->at(i)+"\t\t"+dateList2->at(i);
+        QString item = QString::number(i+1)+"\t"
+                        +totalList2->at(i)+"\t"
+                        +costList->at(i)+"\t"
+                        +dateList2->at(i);
         ui->listWidget_2->addItem(item);
     }
     buyFile.close();
@@ -157,14 +143,15 @@ void GoodsInquiryWindow::on_listWidget_2_itemDoubleClicked(QListWidgetItem *item
     if(row >= 0)
     {
         BuyList *by = new BuyList(this);
-        by->addItem("种类\t商品名\t单价\t数量");
+        by->addItem("种类\t商品名\t单价\t成本\t数量");
         for(auto it=orderList2->at(row).begin();it!=orderList2->at(row).end();it++)
         {
             QString type = it.value().value("种类");
             QString name = it.value().value("商品名");
             QString price = it.value().value("单价") ;
+            QString cost = it.value().value("成本") ;
             QString num = it.value().value("数量");
-            by->addItem(type+"\t"+name+"\t"+price+"\t"+num);
+            by->addItem(type+"\t"+name+"\t"+price+"\t"+cost+"\t"+num);
         }
         by->show();
         by->move ((this->width()-by->width())/2, (this->height()-by->height())/2);

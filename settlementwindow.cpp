@@ -9,7 +9,7 @@ SettlementWindow::SettlementWindow(QWidget *parent) :
 
     //初始化shoppingList
     QList<QString> l;
-    for(int i=0;i<4;i++)
+    for(int i=0;i<5;i++)
     {
         shoppingList.append(l);
     }
@@ -26,6 +26,7 @@ SettlementWindow::SettlementWindow(QWidget *parent) :
         {
             QMap<QString,QString> propertyMap;
             propertyMap.insert("price", it2.value().toObject().value("price").toString()) ;
+            propertyMap.insert("cost", it2.value().toObject().value("cost").toString()) ;
             propertyMap.insert("num", it2.value().toObject().value("num").toString()) ;
             commodityMap.insert(it2.key(), propertyMap);
         }
@@ -114,11 +115,12 @@ void SettlementWindow::on_addBtn_clicked()
         ui->totalLabel->setText(QString("%1").arg(d+nowTotal));
 
         //更新列表显示
-        QString type, name, price, number;
+        QString type, name, price, number, cost;
         type = ui->typeComboBox->currentText();
         name = ui->nameComboBox->currentText();
         price = ui->priceLabel->text();
         number = ui->numberSpinBox->text();
+        cost = typeMap.value(type).value(name).value("cost");
 
         int num = ui->listWidget->count();
         ui->listWidget->addItem(QString::number(num)
@@ -130,6 +132,7 @@ void SettlementWindow::on_addBtn_clicked()
         shoppingList[1].append(name);
         shoppingList[2].append(price);
         shoppingList[3].append(number);
+        shoppingList[4].append(cost);
 
         int n = typeMap.value(type).value(name).value("num").toInt()-number.toInt();
         typeMap[type][name]["num"] = QString::number(n);
@@ -168,6 +171,7 @@ void SettlementWindow::on_deleteBtn_2_clicked()
             shoppingList[1].removeAt(n-1);
             shoppingList[2].removeAt(n-1);
             shoppingList[3].removeAt(n-1);
+            shoppingList[4].removeAt(n-1);
 
             //更新列表显示
             ui->listWidget->clear();
@@ -221,6 +225,14 @@ void SettlementWindow::on_submitBtn_clicked()
     }
     else
     {
+        double totalCost=0;
+        //计算利润
+        for(int i=0;i<shoppingList.at(0).count();i++)
+        {
+            totalCost += shoppingList.at(3).at(i).toDouble()*shoppingList.at(4).at(i).toDouble();
+        }
+        QString profit = QString::number(ui->totalLabel->text().toDouble()-totalCost,'f',2);
+
         //获取提交时间
         QString date = QDateTime::currentDateTime().toString("yyyy.MM.dd hh:mm:ss ddd");
 
@@ -244,9 +256,11 @@ void SettlementWindow::on_submitBtn_clicked()
             itemObj.insert("商品名", shoppingList[1].at(i));
             itemObj.insert("单价", shoppingList[2].at(i));
             itemObj.insert("数量", shoppingList[3].at(i));
+            itemObj.insert("成本", shoppingList[4].at(i));
             orderObj.insert(QString::number(i), itemObj);
         }
         orderObj.insert("total", ui->totalLabel->text());
+        orderObj.insert("profit", profit);
         orderObj.insert("date", date);
         orderArray.append(orderObj);
         object["order"] = orderArray;
@@ -267,6 +281,7 @@ void SettlementWindow::on_submitBtn_clicked()
             {
                 QJsonObject propertyObj;
                 propertyObj.insert("price", it2.value().value("price"));
+                propertyObj.insert("cost", it2.value().value("cost"));
                 propertyObj.insert("num", it2.value().value("num"));
                 nameObj.insert(it2.key(), propertyObj);
             }
@@ -279,6 +294,7 @@ void SettlementWindow::on_submitBtn_clicked()
 
         //清空列表
         ui->listWidget->clear();
+        ui->listWidget->addItem("序号\t种类\t商品名\t单价\t数量");
         ui->totalLabel->setText(QString::number(0));
 
         QMessageBox *qb = new QMessageBox(this);

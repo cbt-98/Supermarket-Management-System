@@ -174,9 +174,9 @@ void GoodsManagementWindow::on_submitBtn_clicked()
             QJsonObject commodityObj = typeObj.value(name).toObject();  //某一个商品对象                          //某个商品的对象
             if(commodityObj.isEmpty())
             {
-                qDebug() << "没有该商品";
                 commodityObj.insert("price", price);
                 commodityObj.insert("num", number);
+                commodityObj.insert("cost", price);
                 typeObj.insert(name,commodityObj);
             }
             else

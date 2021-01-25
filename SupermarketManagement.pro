@@ -22,6 +22,7 @@ SOURCES += \
     goodsmanagementwindow.cpp \
     main.cpp \
     mainwindow.cpp \
+    modifywindow.cpp \
     settlementwindow.cpp \
     staffmanagementwindow.cpp \
     staffwindow.cpp
@@ -32,6 +33,7 @@ HEADERS += \
     goodsinquirywindow.h \
     goodsmanagementwindow.h \
     mainwindow.h \
+    modifywindow.h \
     settlementwindow.h \
     staffmanagementwindow.h \
     staffwindow.h
@@ -42,6 +44,7 @@ FORMS += \
     goodsinquirywindow.ui \
     goodsmanagementwindow.ui \
     mainwindow.ui \
+    modifywindow.ui \
     settlementwindow.ui \
     staffmanagementwindow.ui \
     staffwindow.ui

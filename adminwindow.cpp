@@ -1,6 +1,5 @@
 #include "adminwindow.h"
 #include "ui_adminwindow.h"
-
 adminWindow::adminWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::adminWindow)
@@ -39,5 +38,12 @@ void adminWindow::on_goodsInquiryBtn_clicked()
 {
     GoodsInquiryWindow *giw = new GoodsInquiryWindow(this);
     giw->show();
+    this->hide();
+}
+
+void adminWindow::on_goodsInquiryBtn_2_clicked()
+{
+    ModifyWindow *mw = new ModifyWindow(this);
+    mw->show();
     this->hide();
 }

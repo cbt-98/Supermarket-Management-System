@@ -35,10 +35,12 @@ private:
     QList<QMap<QString,QMap<QString,QString>>> *orderList1;
     QList<QString> *dateList1;
     QList<QString> *totalList1;
+
     //保存销售表的容器
     QList<QMap<QString,QMap<QString,QString>>> *orderList2;
     QList<QString> *dateList2;
     QList<QString> *totalList2;
+    QList<QString> *costList;
 ;};
 
 #endif // GOODSINQUIRYWINDOW_H

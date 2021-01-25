@@ -5,6 +5,7 @@
 #include <staffmanagementwindow.h>
 #include <goodsmanagementwindow.h>
 #include <goodsinquirywindow.h>
+#include "modifywindow.h"
 namespace Ui {
 class adminWindow;
 }
@@ -27,6 +28,8 @@ private slots:
 
 
     void on_goodsInquiryBtn_clicked();
+
+    void on_goodsInquiryBtn_2_clicked();
 
 private:
     Ui::adminWindow *ui;
