@@ -81,8 +81,10 @@ color: rgb(39, 38, 54);</string>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(200, 255, 255);
+border-color: rgb(85, 85, 127);
 color: rgb(0, 0, 0);
-font: 12pt &quot;黑体&quot;;</string>
+font: 12pt &quot;黑体&quot;;
+border-radius:10px;</string>
          </property>
          <property name="placeholderText">
           <string/>
@@ -115,7 +117,11 @@ font: 12pt &quot;黑体&quot;;</string>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(200, 255, 255);</string>
+          <string notr="true">background-color: rgb(200, 255, 255);
+border-color: rgb(85, 85, 127);
+color: rgb(0, 0, 0);
+font: 12pt &quot;黑体&quot;;
+border-radius:10px;</string>
          </property>
          <property name="inputMask">
           <string/>
@@ -156,7 +162,8 @@ font: 12pt &quot;黑体&quot;;</string>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(0, 170, 255);
 font: 16pt &quot;黑体&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+border-radius:10px;</string>
        </property>
        <property name="text">
         <string>管理员登录</string>
@@ -193,7 +200,8 @@ color: rgb(255, 255, 255);</string>
        <property name="styleSheet">
         <string notr="true">font: 16pt &quot;黑体&quot;;
 background-color: rgb(226, 226, 226);
-color:rgb(39, 38, 54)</string>
+color:rgb(39, 38, 54);
+border-radius:10px;</string>
        </property>
        <property name="text">
         <string>员工登录</string>

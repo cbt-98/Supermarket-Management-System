@@ -27,7 +27,8 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(180, 180, 180);
+border-radius:5px;</string>
     </property>
     <property name="text">
      <string/>
@@ -49,7 +50,8 @@
     <property name="styleSheet">
      <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(0, 170, 255);
-font: 16pt &quot;黑体&quot;;</string>
+font: 16pt &quot;黑体&quot;;
+border-radius:10px;</string>
     </property>
     <property name="text">
      <string>提  交</string>
@@ -106,7 +108,8 @@ font: 16pt &quot;黑体&quot;;</string>
            <property name="styleSheet">
             <string notr="true">color: rgb(0, 0, 0);
 background-color: rgb(200, 255, 255);
-font: 12pt &quot;黑体&quot;;</string>
+font: 12pt &quot;黑体&quot;;
+border-radius:10px;</string>
            </property>
           </widget>
          </item>
@@ -151,7 +154,8 @@ font: 16pt &quot;黑体&quot;;</string>
            <property name="styleSheet">
             <string notr="true">color: rgb(0, 0, 0);
 background-color: rgb(200, 255, 255);
-font: 12pt &quot;黑体&quot;;</string>
+font: 12pt &quot;黑体&quot;;
+border-radius:10px;</string>
            </property>
           </widget>
          </item>
@@ -196,7 +200,8 @@ font: 16pt &quot;黑体&quot;;</string>
            <property name="styleSheet">
             <string notr="true">color: rgb(0, 0, 0);
 background-color: rgb(200, 255, 255);
-font: 12pt &quot;黑体&quot;;</string>
+font: 12pt &quot;黑体&quot;;
+border-radius:10px;</string>
            </property>
            <property name="text">
             <string/>
@@ -244,7 +249,8 @@ font: 16pt &quot;黑体&quot;;</string>
            <property name="styleSheet">
             <string notr="true">color: rgb(0, 0, 0);
 background-color: rgb(200, 255, 255);
-font: 12pt &quot;黑体&quot;;</string>
+font: 12pt &quot;黑体&quot;;
+border-radius:10px;</string>
            </property>
            <property name="maximum">
             <number>99999999</number>
@@ -292,7 +298,8 @@ font: 16pt &quot;黑体&quot;;</string>
            <property name="styleSheet">
             <string notr="true">color: rgb(0, 0, 0);
 background-color: rgb(255, 200, 200);
-font: 10pt &quot;黑体&quot;;</string>
+font: 10pt &quot;黑体&quot;;
+border-radius:10px;</string>
            </property>
            <property name="placeholderText">
             <string>输入要删除的序号</string>
@@ -308,7 +315,7 @@ font: 10pt &quot;黑体&quot;;</string>
        <item>
         <widget class="QPushButton" name="addBtn">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -319,10 +326,17 @@ font: 10pt &quot;黑体&quot;;</string>
            <height>0</height>
           </size>
          </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true">color: rgb(0, 0, 0);
 background-color: rgb(170, 227, 255);
-font: 12pt &quot;黑体&quot;;</string>
+font: 12pt &quot;黑体&quot;;
+border-radius:10px;</string>
          </property>
          <property name="text">
           <string/>
@@ -336,21 +350,28 @@ font: 12pt &quot;黑体&quot;;</string>
        <item>
         <widget class="QPushButton" name="deleteBtn_2">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>30</width>
            <height>64</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">color: rgb(0, 0, 0);
 background-color: rgb(255, 160, 160);
-font: 10pt &quot;黑体&quot;;</string>
+font: 10pt &quot;黑体&quot;;
+border-radius:10px;</string>
          </property>
          <property name="text">
           <string/>
@@ -462,7 +483,7 @@ color: rgb(0, 0, 0);</string>
 color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
-     <string>剩 余：</string>
+     <string>库 存：</string>
     </property>
    </widget>
   </widget>

@@ -6,6 +6,7 @@
 #include <goodsmanagementwindow.h>
 #include <goodsinquirywindow.h>
 #include "modifywindow.h"
+#include <QIcon>
 namespace Ui {
 class adminWindow;
 }

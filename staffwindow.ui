@@ -24,7 +24,8 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(180, 180, 180);
+border-radius:5px;</string>
     </property>
     <property name="text">
      <string/>
@@ -61,7 +62,8 @@
        <property name="styleSheet">
         <string notr="true">font: 14pt &quot;黑体&quot;;
 color: rgb(255, 255, 255);
-background-color:rgb(39, 38, 54);</string>
+background-color:rgb(39, 38, 54);
+border-radius:10px;</string>
        </property>
        <property name="text">
         <string>客 户 结 算</string>
@@ -98,7 +100,8 @@ background-color:rgb(39, 38, 54);</string>
        <property name="styleSheet">
         <string notr="true">font: 14pt &quot;黑体&quot;;
 color: rgb(255, 255, 255);
-background-color:rgb(39, 38, 54);</string>
+background-color:rgb(39, 38, 54);
+border-radius:10px;</string>
        </property>
        <property name="text">
         <string>货 物 查 询</string>

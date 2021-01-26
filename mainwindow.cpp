@@ -27,6 +27,16 @@ MainWindow::MainWindow(QWidget *parent)
         repositoryFile.write(doc.toJson());
         repositoryFile.close();
     }
+    if(!passwordFile->exists())
+    {
+        QMessageBox *mb = new QMessageBox;
+        QIcon icon(":/image/icon/tip.ico");
+        mb->setWindowIcon(icon);
+        mb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+        mb->setWindowTitle("提 示");
+        mb->setText("检测到您第一次使用，点击管理员登录创建管理员账户\r\n默认账户：admin 默认密码：123456");
+        mb->show();
+    }
 }
 
 MainWindow::~MainWindow()
@@ -39,7 +49,6 @@ void MainWindow::on_pushButton_clicked()
 {
     if(!passwordFile->exists())
     {
-        qDebug() << "第一次使用超市管理系统";
         //创建json文件
         passwordFile->open(QIODevice::ReadWrite);
         QJsonObject passwdObj;
@@ -74,6 +83,15 @@ void MainWindow::on_pushButton_clicked()
         QByteArray data = doc.toJson();
         passwordFile->write(data);
         passwordFile->close();
+
+        QMessageBox *mb = new QMessageBox;
+        QIcon icon(":/image/icon/tip.ico");
+        mb->setWindowIcon(icon);
+        mb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+        mb->setWindowTitle("提 示");
+        mb->setText("创建成功！");
+        mb->show();
+
     }
     else
     {
@@ -98,7 +116,9 @@ void MainWindow::on_pushButton_clicked()
                 {
                     QMessageBox *mb = new QMessageBox;
                     mb->setText("密码错误！");
-                    mb->setWindowTitle(" ");
+                    QIcon icon(":/image/icon/tip.ico");
+                    mb->setWindowIcon(icon);
+                    mb->setWindowTitle("提 示");
                     mb->show();
                     passwordFile->close();
                     break;
@@ -107,8 +127,10 @@ void MainWindow::on_pushButton_clicked()
             if(i == array.size()-1)
             {
                 QMessageBox *mb = new QMessageBox;
+                QIcon icon(":/image/icon/tip.ico");
+                mb->setWindowIcon(icon);
                 mb->setText("用户不存在！");
-                mb->setWindowTitle(" ");
+                mb->setWindowTitle("提 示");
                 mb->show();
                 passwordFile->close();
             }
@@ -122,6 +144,17 @@ void MainWindow::on_pushButton_2_clicked()
     QJsonDocument doc(QJsonDocument::fromJson(passwordFile->readAll()));
     QJsonObject obj = doc.object();
     QJsonArray array = obj.value("staff").toArray();
+    if(array.count()==0)
+    {
+        QMessageBox *mb = new QMessageBox;
+        QIcon icon(":/image/icon/tip.ico");
+        mb->setWindowIcon(icon);
+        mb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+        mb->setWindowTitle("提 示");
+        mb->setText("用户不存在！");
+        mb->show();
+        passwordFile->close();
+    }
     for(int i=0; i<array.size();i++)
     {
         if(array.at(i).toObject().value("account") == ui->accountEdit->text())
@@ -138,8 +171,11 @@ void MainWindow::on_pushButton_2_clicked()
             else
             {
                 QMessageBox *mb = new QMessageBox;
+                mb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+                QIcon icon(":/image/icon/tip.ico");
+                mb->setWindowIcon(icon);
+                mb->setWindowTitle("提 示");
                 mb->setText("密码错误！");
-                mb->setWindowTitle(" ");
                 mb->show();
                 passwordFile->close();
                 break;
@@ -148,8 +184,11 @@ void MainWindow::on_pushButton_2_clicked()
         if(i == array.size()-1)
         {
             QMessageBox *mb = new QMessageBox;
+            QIcon icon(":/image/icon/tip.ico");
+            mb->setWindowIcon(icon);
+            mb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+            mb->setWindowTitle("提 示");
             mb->setText("用户不存在！");
-            mb->setWindowTitle(" ");
             mb->show();
             passwordFile->close();
         }

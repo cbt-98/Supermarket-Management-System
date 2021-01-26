@@ -103,7 +103,10 @@ void SettlementWindow::on_addBtn_clicked()
     if(ui->numberSpinBox->text()=="0")
     {
         QMessageBox *qb = new QMessageBox(this);
+        QIcon icon(":/image/icon/tip.ico");
+        qb->setWindowIcon(icon);
         qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+        qb->setWindowTitle("提 示");
         qb->setText("请输入商品名，数量至少为1");
         qb->show();
     }
@@ -200,7 +203,10 @@ void SettlementWindow::on_deleteBtn_2_clicked()
         else
         {
             QMessageBox *mb = new QMessageBox(this);
+            QIcon icon(":/image/icon/tip.ico");
+            mb->setWindowIcon(icon);
             mb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+            mb->setWindowTitle("提 示");
             mb->setText("没有该选项");
             mb->show();
         }
@@ -208,7 +214,10 @@ void SettlementWindow::on_deleteBtn_2_clicked()
     else
     {
         QMessageBox *qb = new QMessageBox(this);
+        QIcon icon(":/image/icon/tip.ico");
+        qb->setWindowIcon(icon);
         qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+        qb->setWindowTitle("提 示");
         qb->setText("请输入行号");
         qb->show();
     }
@@ -219,7 +228,10 @@ void SettlementWindow::on_submitBtn_clicked()
     if(ui->listWidget->count()==1)
     {
         QMessageBox *qb = new QMessageBox(this);
+        QIcon icon(":/image/icon/tip.ico");
+        qb->setWindowIcon(icon);
         qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+        qb->setWindowTitle("提 示");
         qb->setText("购物单为空");
         qb->show();
     }
@@ -304,6 +316,10 @@ void SettlementWindow::on_submitBtn_clicked()
         }
 
         QMessageBox *qb = new QMessageBox(this);
+        QIcon icon(":/image/icon/tip.ico");
+        qb->setWindowIcon(icon);
+        qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+        qb->setWindowTitle("提 示");
         qb->setText("提交成功！");
         qb->show();
     }

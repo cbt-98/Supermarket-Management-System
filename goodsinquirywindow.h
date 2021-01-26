@@ -10,6 +10,7 @@
 #include "buylist.h"
 #include <QListWidgetItem>
 #include <QDebug>
+#include <QIcon>
 namespace Ui {
 class GoodsInquiryWindow;
 }

@@ -40,6 +40,9 @@ void GoodsManagementWindow::on_addBtn_clicked()
     if(ui->nameEdit->text()==""||ui->numberSpinBox->text()=="0")
     {
         QMessageBox *qb = new QMessageBox(this);
+        qb->setWindowTitle("提 示");
+        QIcon icon(":/image/icon/tip.ico");
+        qb->setWindowIcon(icon);
         qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
         qb->setText("请输入商品名，数量至少为1");
         qb->show();
@@ -101,6 +104,10 @@ void GoodsManagementWindow::on_deleteBtn_clicked()
         else
         {
             QMessageBox *mb = new QMessageBox(this);
+            QIcon icon(":/image/icon/tip.ico");
+            mb->setWindowIcon(icon);
+            mb->setWindowTitle("提 示");
+            mb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
             mb->setText("没有该选项");
             mb->show();
         }
@@ -108,6 +115,9 @@ void GoodsManagementWindow::on_deleteBtn_clicked()
     else
     {
         QMessageBox *qb = new QMessageBox(this);
+        qb->setWindowTitle("提 示");
+        QIcon icon(":/image/icon/tip.ico");
+        qb->setWindowIcon(icon);
         qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
         qb->setText("请输入行号");
         qb->show();
@@ -119,6 +129,9 @@ void GoodsManagementWindow::on_submitBtn_clicked()
     if(ui->listWidget->count()==1)
     {
         QMessageBox *qb = new QMessageBox(this);
+        QIcon icon(":/image/icon/tip.ico");
+        qb->setWindowIcon(icon);
+        qb->setWindowTitle("提 示");
         qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
         qb->setText("订单为空");
         qb->show();
@@ -198,6 +211,10 @@ void GoodsManagementWindow::on_submitBtn_clicked()
         ui->listWidget->addItem("序号\t种类\t商品名\t单价\t数量");
         ui->totalLabel->setText(QString::number(0));
         QMessageBox *mb = new QMessageBox(this);
+        mb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
+        QIcon icon(":/image/icon/tip.ico");
+        mb->setWindowIcon(icon);
+        mb->setWindowTitle("提 示");
         mb->setText("提交成功");
         mb->setStyleSheet("color:rgb(0,0,0)");
         mb->show();

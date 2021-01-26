@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <goodsinquirywindow.h>
 #include <settlementwindow.h>
-
+#include <QIcon>
 namespace Ui {
 class StaffWindow;
 }

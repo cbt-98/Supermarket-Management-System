@@ -142,6 +142,9 @@ void ModifyWindow::on_pushButton_clicked()
 
     repositoryFile.close();
     QMessageBox *qb = new QMessageBox(this);
+    QIcon icon(":/image/icon/tip.ico");
+    qb->setWindowIcon(icon);
+    qb->setWindowTitle("提 示");
     qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
     qb->setText("提交成功！");
     qb->show();

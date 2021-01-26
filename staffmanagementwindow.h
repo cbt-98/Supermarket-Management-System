@@ -8,6 +8,7 @@
 #include <QJsonObject>
 #include <QFile>
 #include <QSize>
+#include <QIcon>
 namespace Ui {
 class StaffManagementWindow;
 }

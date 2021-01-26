@@ -7,5 +7,7 @@
         <file>image/picture/find.png</file>
         <file>image/picture/goods.png</file>
         <file>image/picture/staff.png</file>
+        <file>image/icon/main.ico</file>
+        <file>image/icon/tip.ico</file>
     </qresource>
 </RCC>

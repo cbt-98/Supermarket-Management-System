@@ -43,6 +43,9 @@ void StaffManagementWindow::on_addBtn_clicked()
     if(ui->accountEdit->text()==""||ui->passwdEdit->text()=="")
     {
         QMessageBox *qb = new QMessageBox(this);
+        qb->setWindowTitle("提 示");
+        QIcon icon(":/image/icon/tip.ico");
+        qb->setWindowIcon(icon);
         qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
         qb->setText("账户名或密码不能为空");
         qb->show();
@@ -69,6 +72,9 @@ void StaffManagementWindow::on_addBtn_clicked()
                                 +ui->accountEdit->text()+"\t"
                                 +ui->passwdEdit->text());
         QMessageBox *qb = new QMessageBox(this);
+        qb->setWindowTitle("提 示");
+        QIcon icon(":/image/icon/tip.ico");
+        qb->setWindowIcon(icon);
         qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
         qb->setText("添加成功");
         qb->show();
@@ -80,6 +86,9 @@ void StaffManagementWindow::on_deleteBtn_clicked()
     if(ui->deleteEdit->text()=="")
     {
         QMessageBox *qb = new QMessageBox(this);
+        QIcon icon(":/image/icon/tip.ico");
+        qb->setWindowIcon(icon);
+        qb->setWindowTitle("提 示");
         qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
         qb->setText("请输入行号");
         qb->show();
@@ -87,6 +96,8 @@ void StaffManagementWindow::on_deleteBtn_clicked()
     else
     {
         QMessageBox *qb = new QMessageBox(this);
+        QIcon icon(":/image/icon/tip.ico");
+        qb->setWindowIcon(icon);
         qb->setStyleSheet( "font: 12pt \"黑体\"; color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);");
         qb->setText("确认删除该账户吗？");
         qb->setStandardButtons(QMessageBox::No|QMessageBox::Yes);

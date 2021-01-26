@@ -11,6 +11,7 @@
 #include <QMessageBox>
 #include <adminwindow.h>
 #include <staffwindow.h>
+#include <QIcon>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

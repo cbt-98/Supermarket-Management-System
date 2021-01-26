@@ -11,6 +11,7 @@
 #include <QMessageBox>
 #include <QList>
 #include <QMap>
+#include <QIcon>
 #include <QTableWidgetItem>
 namespace Ui {
 class ModifyWindow;
