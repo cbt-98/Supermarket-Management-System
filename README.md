@@ -1,11 +1,10 @@
 # Supermarket-Management-System
-#作者：cbt-98
-#日期：2021.1.26
 
 #使用
-双击超市管理系统.exe直接运行
 
-运行过程中将创建：
+	双击超市管理系统.exe直接运行
+
+	运行过程中将创建：
 	
 	passwd.json：存放账户密码
 	
